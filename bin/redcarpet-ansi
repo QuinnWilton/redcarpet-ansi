@@ -2,4 +2,8 @@
 
 require 'redcarpet/ansi'
 
-puts "test"
+renderer = Redcarpet::Markdown.new(Redcarpet::Render::ANSI)
+markdown = ARGF.read
+ansi     = renderer.render(markdown)
+
+$stdout.puts ansi
