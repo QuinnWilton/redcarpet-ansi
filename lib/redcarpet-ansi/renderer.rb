@@ -35,6 +35,10 @@ module RedcarpetANSI
     def underline(text)
       TextStyler.style(text, :underscore)
     end
+    
+    def strikethrough(text)
+      TextStyler.style(text, :dim)
+    end
 
     def paragraph(text)
       text + "\n\n"
@@ -45,7 +49,7 @@ module RedcarpetANSI
         |x| "#{TAB}#{TAB}#{x}"
       }.join("\n")
       
-      "\n#{TAB}#{language}:\n" + indented_code + "\n\n"
+      "#{TAB}#{language}:\n" + indented_code + "\n\n"
     end
     
     def block_quote(quote)
@@ -63,9 +67,9 @@ module RedcarpetANSI
     def list(content, list_type)
       case list_type
       when :ordered
-        content
+        content + "\n"
       when :unordered
-        content
+        content + "\n"
       end
     end
 
@@ -87,7 +91,7 @@ module RedcarpetANSI
     end
 
     def image(link, title, content)
-      ""
+      "(Image - #{link})"
     end
   end
 end

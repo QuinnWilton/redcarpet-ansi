@@ -18,6 +18,8 @@ _**blinking underline**_
 
 this_is_not_underlined
 
+~~Dimmed words~~
+
 - this
 - is a paragraph inside of
 - list of words
