@@ -4,24 +4,11 @@ require 'redcarpet-ansi/text_styler'
 
 module RedcarpetANSI
   class Renderer < Redcarpet::Render::Base
+    
+    # tab character will depend on their terminal
+    # settings, and most people have the wrong settings.
+    TAB = '  '
       
-    # We strip most elements to be plaintext
-    [
-      # block-level calls
-      :block_code, :block_quote,
-      :block_html,
-
-      # span-level calls
-      :codespan, :raw_html,
-
-      # low level rendering
-      :entity, :normal_text
-    ].each do |method|
-      define_method method do |*args|
-        args.first
-      end
-    end
-
     def header(text, level)
       case level
       when 1
@@ -50,24 +37,44 @@ module RedcarpetANSI
     end
 
     def paragraph(text)
-      text + "\n"
+      text + "\n\n"
+    end
+    
+    def block_code(code, language)
+      indented_code = code.split("\n").map { 
+        |x| "#{TAB}#{TAB}#{x}"
+      }.join("\n")
+      
+      "\n#{TAB}#{language}:\n" + indented_code + "\n\n"
+    end
+    
+    def block_quote(quote)
+      indented_quote = quote.split("\n").map { 
+        |x| "#{TAB}#{x}"
+      }.join("\n")
+      
+      indented_quote + "\n\n"
+    end
+    
+    def block_html(raw_html)
+      block_code(raw_html, 'html')
     end
     
     def list(content, list_type)
       case list_type
       when :ordered
-        content + "\n"
+        content
       when :unordered
-        content + "\n"
+        content
       end
     end
 
     def list_item(content, list_type)
       case list_type
       when :ordered
-        " - #{content.strip}\n"
+        "#{TAB}- #{content.strip}\n"
       when :unordered
-        " - #{content.strip}\n"
+        "#{TAB}- #{content.strip}\n"
       end
     end
     

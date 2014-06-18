@@ -5,7 +5,9 @@ require 'redcarpet-ansi'
 
 renderer = Redcarpet::Markdown.new(RedcarpetANSI::Renderer,
                                    no_intra_emphasis: true,
-                                   underline: true)
+                                   underline: true,
+                                   fenced_code_blocks: true,
+                                   disable_indended_code_blocks: true)
 markdown = ARGF.read
 ansi     = renderer.render(markdown)
 
