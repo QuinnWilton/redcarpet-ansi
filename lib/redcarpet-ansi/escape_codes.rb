@@ -1,7 +1,7 @@
 module RedcarpetANSI
   module EscapeCodes
     ESC = "\033"
-    
+
     RESET      = "[0m"
     BRIGHT     = "[1m"
     DIM        = "[2m"
@@ -9,7 +9,7 @@ module RedcarpetANSI
     BLINK      = "[5m"
     REVERSE    = "[7m"
     HIDDEN     = "[8m"
-    
+
     FOREGROUND_BLACK   = "[30m"
     FOREGROUND_RED     = "[31m"
     FOREGROUND_GREEN   = "[32m"
@@ -19,7 +19,7 @@ module RedcarpetANSI
     FOREGROUND_CYAN    = "[36m"
     FOREGROUND_WHITE   = "[37m"
     FOREGROUND_DEFAULT = "[39m"
-    
+
     BACKGROUND_BLACK   = "[40m"
     BACKGROUND_RED     = "[41m"
     BACKGROUND_GREEN   = "[42m"
@@ -29,7 +29,7 @@ module RedcarpetANSI
     BACKGROUND_CYAN    = "[46m"
     BACKGROUND_WHITE   = "[47m"
     BACKGROUND_DEFAULT = "[49m"
-    
+
     def self.from_symbol(symbol)
       const_get(symbol.upcase)
     end

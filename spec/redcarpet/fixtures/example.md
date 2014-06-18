@@ -27,7 +27,7 @@ this_is_not_underlined
 ```ruby
 class Foo
   module Bar
-    
+
     def self.baz(arg)
       puts arg
     end
