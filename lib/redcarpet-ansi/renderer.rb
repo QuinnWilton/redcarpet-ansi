@@ -1,4 +1,5 @@
 require 'redcarpet-ansi/escape_codes'
+require 'redcarpet-ansi/header_styler'
 require 'redcarpet-ansi/text_styler'
 
 module RedcarpetANSI
@@ -26,8 +27,15 @@ module RedcarpetANSI
       end
     end
 
-    def header(text, header_level)
-      text + "\n"
+    def header(text, level)
+      case level
+      when 1
+        HeaderStyler.style(text, :large) + "\n"
+      when 2
+        HeaderStyler.style(text, :medium) + "\n"
+      when 3
+        HeaderStyler.style(text, :small) + "\n"
+      end
     end
     
     def triple_emphasis(text)
@@ -55,7 +63,7 @@ module RedcarpetANSI
     end
 
     def paragraph(text)
-      text + "\n"
+      "\n" + text + "\n"
     end
   end
 end

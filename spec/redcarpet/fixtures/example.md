@@ -1,8 +1,8 @@
-# This is a heading
+# Big Heading
 
-## Smaller heading
+## Medium heading
 
-### Smallest heading
+### Small heading
 
 Normal
 
@@ -11,5 +11,9 @@ Normal
 **blinking**
 
 _underlined_
+
+*_bolded underline_*
+
+_**blinking underline**_
 
 this_is_not_underlined
