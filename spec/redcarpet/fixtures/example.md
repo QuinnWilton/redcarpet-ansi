@@ -17,3 +17,7 @@ _underlined_
 _**blinking underline**_
 
 this_is_not_underlined
+
+- this
+- is a
+- list of words

@@ -9,4 +9,4 @@ renderer = Redcarpet::Markdown.new(RedcarpetANSI::Renderer,
 markdown = ARGF.read
 ansi     = renderer.render(markdown)
 
-$stdout.puts ansi
+$stdout.write(ansi)

@@ -9,7 +9,7 @@ module RedcarpetANSI
     [
       # block-level calls
       :block_code, :block_quote,
-      :block_html, :list, :list_item,
+      :block_html,
 
       # span-level calls
       :autolink, :codespan,
@@ -54,16 +54,38 @@ module RedcarpetANSI
       TextStyler.style(text, :underscore)
     end
 
+    def paragraph(text)
+      text + "\n"
+    end
+    
+    def list(content, list_type)
+      case list_type
+      when :ordered
+        content + "\n"
+      when :unordered
+        content + "\n"
+      end
+    end
+
+    def list_item(content, list_type)
+      case list_type
+      when :ordered
+        " - #{content.strip}\n"
+      when :unordered
+        " - #{content.strip}\n"
+      end
+    end
+    
+    def linebreak
+      "\n"
+    end
+
     def link(link, title, content)
       content
     end
 
     def image(link, title, content)
-      content
-    end
-
-    def paragraph(text)
-      "\n" + text + "\n"
+      ""
     end
   end
 end
