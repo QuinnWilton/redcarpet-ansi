@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'redcarpet/ansi/version'
+require 'redcarpet-ansi/version'
 
 Gem::Specification.new do |spec|
   spec.name          = 'redcarpet-ansi'
-  spec.version       = Redcarpet::Ansi::VERSION
+  spec.version       = RedcarpetANSI::VERSION
   spec.authors       = ['Shane Wilton']
   spec.email         = ['shane.wilton@gmail.com']
   spec.summary       = 'An ANSI renderer for Redcarpet'

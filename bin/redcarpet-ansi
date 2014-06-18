@@ -1,8 +1,11 @@
 #!/usr/bin/env ruby
 
-require 'redcarpet/ansi'
+require 'redcarpet'
+require 'redcarpet-ansi'
 
-renderer = Redcarpet::Markdown.new(Redcarpet::Render::ANSI)
+renderer = Redcarpet::Markdown.new(RedcarpetANSI::Renderer,
+                                   no_intra_emphasis: true,
+                                   underline: true)
 markdown = ARGF.read
 ansi     = renderer.render(markdown)
 
