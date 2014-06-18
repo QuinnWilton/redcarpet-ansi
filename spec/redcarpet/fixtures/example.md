@@ -6,7 +6,7 @@
 
 Normal
 
-*bolded*
+*bolded*  
 
 **blinking**
 

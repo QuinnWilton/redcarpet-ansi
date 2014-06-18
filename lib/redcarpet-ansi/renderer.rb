@@ -12,12 +12,7 @@ module RedcarpetANSI
       :block_html,
 
       # span-level calls
-      :autolink, :codespan,
-      :raw_html, :strikethrough,
-      :superscript,
-
-      # footnotes
-      :footnotes, :footnote_def, :footnote_ref,
+      :codespan, :raw_html,
 
       # low level rendering
       :entity, :normal_text
